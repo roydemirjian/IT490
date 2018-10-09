@@ -1,20 +1,38 @@
 <?php
 
-function dbConnection(){
+function dbConnect(){
 
 	$hostname = '127.0.0.1';
-	$user = 'test';
-	$pass = '4321password';
+	$username = 'test';
+	$password = '4321password';
 	$dbname = 'test';
 
-	$connection = mysqli_connect($hostname, $user, $pass, $dbname);
+/*
 
-	if (!$connection){
-		echo "Error connecint got database: ".$connection->connect_errno.PHP_EOL;
+	$con = mysqli_connect($hostname, $username, $password, $dbname);
+
+	if (!$con){
+		echo "Error connecint got database: ".$con->connect_errno.PHP_EOL;
 		exit(1);
 	}
 	echo "Connection established to database".PHP_EOL;
-	return $connection;
+	return $con;
+
+ */
+
+
+	$con = new mysqli($servername, $username, $password, $dbname);
+
+	if (mysqli_connect_errno()){
+        	echo "<br><br>Failed to connect to MySQL: " . mysqli_connect_error();
+	}
+
+
+	echo " Succesfully connected to MySql.<br><br><br>";
+
+
+
+
 }
 
 ?>
