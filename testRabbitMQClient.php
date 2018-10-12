@@ -16,8 +16,8 @@ else
 
 $request = array();
 $request['type'] = "login";
-$request['username'] = "IT490";
-$request['password'] = "IT490";
+$request['username'] = $userName;
+$request['password'] = $userPass;
 $request['message'] = $msg;
 $response = $client->send_request($request);
 //$response = $client->publish($request);
