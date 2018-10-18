@@ -1,0 +1,3 @@
+[18-Oct-2018 14:45:51 America/New_York] PHP Notice:  Undefined variable: userName in /home/roydem/database/testRabbitMQClient.php on line 29
+[18-Oct-2018 14:45:51 America/New_York] PHP Notice:  Undefined variable: userPass in /home/roydem/database/testRabbitMQClient.php on line 30
+[18-Oct-2018 14:45:51 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/roydem/database/rabbitMQLib.inc on line 215
