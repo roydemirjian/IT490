@@ -26,8 +26,8 @@ else
 
 $request = array();
 $request['type'] = "register";
-$request['username'] = "IT4444490";
-$request['password'] = "IT4444490";
+$request['username'] = "fuckIT490";
+$request['password'] = "fuckIT490";
 $request['message'] = $msg;
 $response = $client->send_request($request);
 //$response = $client->publish($request);

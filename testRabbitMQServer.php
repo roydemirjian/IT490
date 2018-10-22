@@ -69,7 +69,7 @@ function doRegister($userName,$userPass)
         echo "Successfully connected to database".PHP_EOL;
 
 	//Check is user already exists
-        $query = mysqli_query($mydb,"SELECT * FROM Users WHERE username = '$userName' AND password = '$userPass'");
+        $query = mysqli_query($mydb,"SELECT * FROM Users WHERE username = '$userName' ");
         $count = mysqli_num_rows($query);
 
         if ($count == 1){
@@ -78,7 +78,7 @@ function doRegister($userName,$userPass)
                 return true;
         }else{
 		//Create new user account if its unique 
-	        $query = mysqli_query($mydb,"INSERT INTO Users (username, password) VALUES ('$userName', '$userPass'");
+	        $query2 = mysqli_query($mydb,"INSERT INTO Users VALUES (NULL,'$userName', '$userPass')");
                 echo "ACCOUNT HAS BEEN MADE";
                 //return false;
         }
