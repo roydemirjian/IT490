@@ -10,22 +10,29 @@ require_once('rabbitMQLib.inc');
 //error_reporting(E_ALL);
 //ini_set('display_errors', TRUE);
 //ini_set('log_errors', TRUE);
-//ini_set('error_log', dirname(__FILE__). '/../logging/log.txt');
+//ini_set('error_log', '/home/roydem/database/logging/dbLog.txt');
 //ini_set('log_errors_max_len', 1024);
 
 
+//$filename = '/home/roydem/database/logging/rmqDatabase_error.txt';
+
+
 function writeError($error, $filename){
-	$fileopen = fopen($filename . '.txt', "a");
-	for ($i = 0; $i < count ($error); $i++){
-		fwrite ($fileopen, $error[$i]);
-	}
-	return true;
+      $fp = fopen($filename . '.txt', "a");
+      for ($i = 0; $i < count ($error); $i++){
+              fwrite ($fp, $error[$i]);
+      }
+      return true;
 }
+
 
 
 function requestProcessor($request)
 {
   echo "received request".PHP_EOL;
+
+  echo $request['type'];
+
   var_dump($request);
 
   if(!isset($request['type']))
@@ -36,23 +43,24 @@ function requestProcessor($request)
   {
     case "frontend":
 	echo "FRONT END: ";
-	$response = writeError($request['error_string'], 'frontend_error');
-	echo "Results: " . $response;
+	$message = writeError($request['error_string'], '/home/roydem/database/logging/rmqFrontend_error');
+	echo "Results: ";
 	break;
     case "db":
 	echo "DATABASE: ";
-	$response = writeError($request['error_string'], 'database_error');
-	echo "Results: " . $response;
+	$message = writeError($request['error_string'], '/home/roydem/database/logging/rmqDatabase_error');
+	//echo "Results: " . $message;
 	break;
     case "dmz":
 	echo "DMZ: ";
-	$response = writeError($request['error_string'], 'dmz_error');
-	echo "Results: " . $response;
+        $message = writeError($request['error_string'], '/home/roydem/database/logging/rmqDmz_error');
+	echo "Results: "; 
 	break;
     
   }
-  echo $response;
-  return $response;
+
+  //echo $message;
+  return $message;
 }
 
 

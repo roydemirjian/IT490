@@ -70,8 +70,6 @@ function doRegister($userName,$userPass)
 
 	//Check is user already exists
         $query = mysqli_query($mydb,"SELECT * FROM Users WHERE username = '$userName' AND password = '$userPass'");
-
-
         $count = mysqli_num_rows($query);
 
         if ($count == 1){
@@ -80,9 +78,9 @@ function doRegister($userName,$userPass)
                 return true;
         }else{
 		//Create new user account if its unique 
-	        $query = mysqli_query($mydb,"INSERT INTO Users (id, username, password) VALUES (NULL,'$userName', '$userPass'");
+	        $query = mysqli_query($mydb,"INSERT INTO Users (username, password) VALUES ('$userName', '$userPass'");
                 echo "ACCOUNT HAS BEEN MADE";
-                return false;
+                //return false;
         }
 
         if ($mydb->errno !=0){
