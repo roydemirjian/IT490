@@ -5,6 +5,7 @@ require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 
+
 $filename = '/home/roydem/database/logging/dbLog.txt';
 
 
@@ -19,7 +20,7 @@ while(! feof($file)){
 
 fclose($file);
 
-//
+//Change ['type'] based on what server this client code is running on
 $request = array();
 $request['type'] = "db";
 $request['error_string'] = $errorArray;
@@ -36,12 +37,13 @@ file_put_contents("/home/roydem/database/logging/dbLog.txt", "");
 
 //If file to append to does not exists, create one
 } else {
-	echo "The file $filename does not exist." . "<br>" . "Creating now.". "<br>";
+	echo "<br><br>The file $filename does not exist. Creating now.";
 	$create = fopen($filename, 'w') or die ('Cannot create file');
 }
 
 
 //RMQ client function
+//Uses error.ini that is strictly used for error logging
 function createClientForRmq($request){
         $client = new rabbitMQClient("rabbitMQ_error.ini", "testServer");
        

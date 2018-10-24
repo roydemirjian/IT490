@@ -14,9 +14,8 @@ require_once('rabbitMQLib.inc');
 //ini_set('log_errors_max_len', 1024);
 
 
-//$filename = '/home/roydem/database/logging/rmqDatabase_error.txt';
 
-
+//Writes the error string sent from client into a filename that is given in the function call
 function writeError($error, $filename){
       $fp = fopen($filename . '.txt', "a");
       for ($i = 0; $i < count ($error); $i++){
@@ -42,19 +41,20 @@ function requestProcessor($request)
   switch ($request['type'])
   {
     case "frontend":
-	echo "FRONT END: ";
+	echo "<br><br>FRONT END: ";
+	//error_string is set in the errorClient and passed along through $request
 	$message = writeError($request['error_string'], '/home/roydem/database/logging/rmqFrontend_error');
-	echo "Results: ";
+	//echo "<br><br>Results: ";
 	break;
     case "db":
-	echo "DATABASE: ";
+	echo "<br><br>DATABASE: ";
 	$message = writeError($request['error_string'], '/home/roydem/database/logging/rmqDatabase_error');
 	//echo "Results: " . $message;
 	break;
     case "dmz":
-	echo "DMZ: ";
+	echo "<br><br>DMZ: ";
         $message = writeError($request['error_string'], '/home/roydem/database/logging/rmqDmz_error');
-	echo "Results: "; 
+	//echo "Results: "; 
 	break;
     
   }
@@ -64,7 +64,7 @@ function requestProcessor($request)
 }
 
 
-
+//Connects rabbitMQServer using the error.ini which is strictly used for error logging
 $server = new rabbitMQServer("rabbitMQ_error.ini","testServer");
 
 echo "ErrorLogging BEGIN".PHP_EOL;
