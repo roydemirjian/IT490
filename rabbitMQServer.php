@@ -121,11 +121,11 @@ function requestProcessor($request)
 
 
 
-$server = new rabbitMQServer("testRabbitMQ.ini","testServer");
+$server = new rabbitMQServer("rabbitMQ_database.ini","testServer");
 
-echo "testRabbitMQServer BEGIN".PHP_EOL;
+echo "rabbitMQServer BEGIN".PHP_EOL;
 $server->process_requests('requestProcessor');
-echo "testRabbitMQServer END".PHP_EOL;
+echo "rabbitMQServer END".PHP_EOL;
 exit();
 ?>
 

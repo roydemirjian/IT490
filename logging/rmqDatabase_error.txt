@@ -3,3 +3,9 @@
 [22-Oct-2018 16:09:35 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/roydem/database/rabbitMQLib.inc on line 215
 [22-Oct-2018 16:12:32 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/roydem/database/rabbitMQLib.inc on line 215
 [22-Oct-2018 16:19:11 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/roydem/database/rabbitMQLib.inc on line 215
+[22-Oct-2018 16:43:38 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/roydem/database/rabbitMQLib.inc on line 215
+[22-Oct-2018 16:47:21 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/roydem/database/rabbitMQLib.inc on line 215
+[22-Oct-2018 16:56:02 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/roydem/database/rabbitMQLib.inc on line 215
+[22-Oct-2018 16:59:04 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/roydem/database/rabbitMQLib.inc on line 215
+[22-Oct-2018 16:59:56 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/roydem/database/rabbitMQLib.inc on line 215
+[29-Oct-2018 17:32:54 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/roydem/database/rabbitMQLib.inc on line 215

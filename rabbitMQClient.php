@@ -14,7 +14,7 @@ ini_set('error_log', '/home/roydem/database/logging/dbLog.txt');
 ini_set('log_errors_max_len', 1024);
 
 
-$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
+$client = new rabbitMQClient("rabbitMQ_database.ini","testServer");
 if (isset($argv[1]))
 {
   $msg = $argv[1];
