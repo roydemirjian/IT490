@@ -7,11 +7,11 @@ require_once('rabbitMQLib.inc');
 
 //ERROR LOGGING
 
-//error_reporting(E_ALL);
-//ini_set('display_errors', TRUE);
-//ini_set('log_errors', TRUE);
-//ini_set('error_log', '/home/roydem/database/logging/dbLog.txt');
-//ini_set('log_errors_max_len', 1024);
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('log_errors', TRUE);
+ini_set('error_log', '/home/roydem/database/logging/dbLog.txt');
+ini_set('log_errors_max_len', 1024);
 
 
 
@@ -25,7 +25,7 @@ function writeError($error, $filename){
 }
 
 
-
+//Based on type, write to different files....
 function requestProcessor($request)
 {
   echo "received request".PHP_EOL;
