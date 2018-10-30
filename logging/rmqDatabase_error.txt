@@ -11,3 +11,19 @@
 [29-Oct-2018 17:32:54 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/roydem/database/rabbitMQLib.inc on line 215
 [29-Oct-2018 18:44:42 America/New_York] PHP Warning:  Use of undefined constant CURL_CUSTOMREQUEST - assumed 'CURL_CUSTOMREQUEST' (this will throw an Error in a future version of PHP) in /home/lord-byron/git/rabbitmqphp_example/testDataPull.php on line 21
 [29-Oct-2018 18:44:42 America/New_York] PHP Warning:  curl_setopt() expects parameter 2 to be integer, string given in /home/lord-byron/git/rabbitmqphp_example/testDataPull.php on line 21
+[29-Oct-2018 17:58:49 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPException: Library error: unexpected protocol state in /home/roydem/database/rabbitMQLib.inc:122
+Stack trace:
+#0 /home/roydem/database/rabbitMQLib.inc(122): AMQPQueue->consume(Array)
+#1 /home/roydem/database/rabbitMQErrorListener.php(71): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/roydem/database/rabbitMQLib.inc on line 132
+[29-Oct-2018 17:58:49 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPException: Library error: unexpected protocol state in /home/roydem/database/rabbitMQLib.inc:122
+Stack trace:
+#0 /home/roydem/database/rabbitMQLib.inc(122): AMQPQueue->consume(Array)
+#1 /home/roydem/database/rabbitMQErrorListener.php(71): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/roydem/database/rabbitMQLib.inc on line 132
+[29-Oct-2018 17:58:49 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPException: Library error: unexpected protocol state in /home/roydem/database/rabbitMQLib.inc:122
+Stack trace:
+#0 /home/roydem/database/rabbitMQLib.inc(122): AMQPQueue->consume(Array)
+#1 /home/roydem/database/rabbitMQErrorListener.php(71): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/roydem/database/rabbitMQLib.inc on line 132
+[30-Oct-2018 18:36:23 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/roydem/database/rabbitMQLib.inc on line 215
