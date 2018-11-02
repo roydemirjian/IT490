@@ -1,0 +1,52 @@
+[02-Nov-2018 13:05:50 America/New_York] PHP Notice:  Undefined variable: message in /home/roydem/database/rabbitMQErrorListener.php on line 63
+[02-Nov-2018 13:05:50 America/New_York] PHP Notice:  Undefined variable: message in /home/roydem/database/rabbitMQErrorListener.php on line 63
+[02-Nov-2018 13:05:50 America/New_York] PHP Notice:  Undefined variable: message in /home/roydem/database/rabbitMQErrorListener.php on line 63
+[02-Nov-2018 13:05:50 America/New_York] PHP Notice:  Undefined variable: message in /home/roydem/database/rabbitMQErrorListener.php on line 63
+[02-Nov-2018 13:26:19 America/New_York] PHP Deprecated:  Function AMQPQueue::declare() is deprecated in /home/roydem/database/rabbitMQLib.inc on line 215
+[02-Nov-2018 13:26:19 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/2002): Connection refused in /home/roydem/database/rabbitMQServer.php on line 63
+[02-Nov-2018 13:26:19 America/New_York] PHP Warning:  doRegister(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 65
+[02-Nov-2018 13:26:19 America/New_York] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 73
+[02-Nov-2018 13:26:19 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/roydem/database/rabbitMQServer.php on line 74
+[02-Nov-2018 13:26:19 America/New_York] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 83
+[02-Nov-2018 13:26:19 America/New_York] PHP Warning:  doRegister(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 88
+[02-Nov-2018 14:04:32 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/2002): Connection refused in /home/roydem/database/rabbitMQServer.php on line 63
+[02-Nov-2018 14:04:32 America/New_York] PHP Warning:  doRegister(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 65
+[02-Nov-2018 14:04:32 America/New_York] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 73
+[02-Nov-2018 14:04:32 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/roydem/database/rabbitMQServer.php on line 74
+[02-Nov-2018 14:04:32 America/New_York] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 83
+[02-Nov-2018 14:04:32 America/New_York] PHP Warning:  doRegister(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 88
+[02-Nov-2018 14:14:07 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/2002): Connection refused in /home/roydem/database/rabbitMQServer.php on line 63
+[02-Nov-2018 14:14:07 America/New_York] PHP Warning:  doRegister(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 65
+[02-Nov-2018 14:14:07 America/New_York] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 73
+[02-Nov-2018 14:14:07 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/roydem/database/rabbitMQServer.php on line 74
+[02-Nov-2018 14:14:07 America/New_York] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 83
+[02-Nov-2018 14:14:07 America/New_York] PHP Warning:  doRegister(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 88
+[02-Nov-2018 14:19:05 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/2002): Connection refused in /home/roydem/database/rabbitMQServer.php on line 63
+[02-Nov-2018 14:19:05 America/New_York] PHP Warning:  doRegister(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 65
+[02-Nov-2018 14:19:05 America/New_York] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 73
+[02-Nov-2018 14:19:05 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/roydem/database/rabbitMQServer.php on line 74
+[02-Nov-2018 14:19:05 America/New_York] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 83
+[02-Nov-2018 14:19:05 America/New_York] PHP Warning:  doRegister(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 88
+[02-Nov-2018 14:22:33 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/roydem/database/rabbitMQServer.php on line 74
+[02-Nov-2018 14:24:11 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/roydem/database/rabbitMQServer.php on line 74
+[02-Nov-2018 14:25:16 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/roydem/database/rabbitMQServer.php on line 74
+[02-Nov-2018 14:26:33 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/roydem/database/rabbitMQServer.php on line 74
+[02-Nov-2018 14:30:53 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/roydem/database/rabbitMQServer.php on line 74
+[02-Nov-2018 14:34:07 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/roydem/database/rabbitMQServer.php on line 74
+[02-Nov-2018 14:36:01 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/roydem/database/rabbitMQServer.php on line 74
+[02-Nov-2018 15:16:35 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/2002): Connection refused in /home/roydem/database/rabbitMQServer.php on line 23
+[02-Nov-2018 15:16:35 America/New_York] PHP Warning:  doLogin(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 25
+[02-Nov-2018 15:16:35 America/New_York] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 34
+[02-Nov-2018 15:16:35 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/roydem/database/rabbitMQServer.php on line 35
+[02-Nov-2018 15:16:35 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/2002): Connection refused in /home/roydem/database/rabbitMQServer.php on line 23
+[02-Nov-2018 15:16:35 America/New_York] PHP Warning:  doLogin(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 25
+[02-Nov-2018 15:16:35 America/New_York] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 34
+[02-Nov-2018 15:16:35 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/roydem/database/rabbitMQServer.php on line 35
+[02-Nov-2018 15:16:48 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/2002): Connection refused in /home/roydem/database/rabbitMQServer.php on line 23
+[02-Nov-2018 15:16:48 America/New_York] PHP Warning:  doLogin(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 25
+[02-Nov-2018 15:16:48 America/New_York] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 34
+[02-Nov-2018 15:16:48 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/roydem/database/rabbitMQServer.php on line 35
+[02-Nov-2018 15:17:54 America/New_York] PHP Warning:  mysqli::__construct(): (HY000/2002): Connection refused in /home/roydem/database/rabbitMQServer.php on line 23
+[02-Nov-2018 15:17:54 America/New_York] PHP Warning:  doLogin(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 25
+[02-Nov-2018 15:17:54 America/New_York] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 34
+[02-Nov-2018 15:17:54 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/roydem/database/rabbitMQServer.php on line 35

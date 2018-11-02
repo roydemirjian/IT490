@@ -20,7 +20,7 @@ function doLogin($userName,$userPass)
         //lookup username and password in database
 
 	//Connect to DB
-	$mydb = new mysqli('127.0.0.1','test','4321password','test');
+	$mydb = new mysqli('192.168.1.4','newuser','4321password','users');
 	
 	if ($mydb->errno != 0){
 
@@ -31,7 +31,7 @@ function doLogin($userName,$userPass)
 	echo "<br><br>Successfully connected to database".PHP_EOL;
 
 	//Select username and password from the database 
-	$query = mysqli_query($mydb,"SELECT * FROM Users WHERE username = '$userName' AND password = '$userPass'");
+	$query = mysqli_query($mydb,"SELECT * FROM users WHERE user_name = '$userName' AND password = '$userPass'");
 	$count = mysqli_num_rows($query);
 
 	//Check if credentials match the database
