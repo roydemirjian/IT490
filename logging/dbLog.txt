@@ -50,3 +50,15 @@
 [02-Nov-2018 15:17:54 America/New_York] PHP Warning:  doLogin(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 25
 [02-Nov-2018 15:17:54 America/New_York] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/roydem/database/rabbitMQServer.php on line 34
 [02-Nov-2018 15:17:54 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/roydem/database/rabbitMQServer.php on line 35
+[05-Nov-2018 13:13:32 America/New_York] PHP Notice:  Undefined variable: password in /home/roydem/database/rabbitMQServer.php on line 41
+[05-Nov-2018 13:14:29 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/roydem/database/rabbitMQServer.php on line 81
+[05-Nov-2018 13:45:04 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPException: Library error: unexpected protocol state in /home/roydem/database/rabbitMQLib.inc:122
+Stack trace:
+#0 /home/roydem/database/rabbitMQLib.inc(122): AMQPQueue->consume(Array)
+#1 /home/roydem/database/rabbitMQErrorListener.php(71): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/roydem/database/rabbitMQLib.inc on line 132
+[05-Nov-2018 13:45:10 America/New_York] PHP Fatal error:  Failed to start request processor: AMQPException: Library error: unexpected protocol state in /home/roydem/database/rabbitMQLib.inc:122
+Stack trace:
+#0 /home/roydem/database/rabbitMQLib.inc(122): AMQPQueue->consume(Array)
+#1 /home/roydem/database/rabbitMQServer.php(128): rabbitMQServer->process_requests('requestProcesso...')
+#2 {main} in /home/roydem/database/rabbitMQLib.inc on line 132

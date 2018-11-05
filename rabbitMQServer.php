@@ -20,7 +20,7 @@ function doLogin($userName,$userPass)
         //lookup username and password in database
 
 	//Connect to DB
-	$mydb = new mysqli('192.168.1.4','newuser','4321password','users');
+	$mydb = new mysqli('192.168.1.6','newuser','4321password','users');
 	
 	if ($mydb->errno != 0){
 
@@ -36,9 +36,10 @@ function doLogin($userName,$userPass)
 
 	//Check if credentials match the database
 	if ($count == 1){
-		//Match	
+		//Match
 		echo "<br><br>USERS CREDENTIALS VERIFIED";
 		return true;
+		
 	}else{
 		//No Match
 		echo "<br><br>WHO THE FUCK ARE YOU";
@@ -60,7 +61,7 @@ function doRegister($userName,$userPass)
         //lookup username in database
 
 	//Connect to DB
-        $mydb = new mysqli('127.0.0.1','test','4321password','test');
+        $mydb = new mysqli('192.168.1.6','newuser','4321password','users');
 
         if ($mydb->errno != 0){
 
@@ -70,7 +71,7 @@ function doRegister($userName,$userPass)
         echo "<br><br>Successfully connected to database".PHP_EOL;
 
 	//Check is user already exists
-        $query = mysqli_query($mydb,"SELECT * FROM Users WHERE username = '$userName' ");
+        $query = mysqli_query($mydb,"SELECT * FROM users WHERE user_name = '$userName'");
         $count = mysqli_num_rows($query);
 
 	//Check if credentials match the database....if there is a match then the user already has an account 
@@ -80,7 +81,7 @@ function doRegister($userName,$userPass)
                 return true;
         }else{
 		//Create new user account if its unique 
-	        $query2 = mysqli_query($mydb,"INSERT INTO Users VALUES (NULL,'$userName', '$userPass')");
+	        $query2 = mysqli_query($mydb,"INSERT INTO users VALUES (NULL,'$userName', '$userPass')");
                 echo "<br><br>ACCOUNT HAS BEEN MADE";
                 //return false;
         }
