@@ -10,7 +10,7 @@ if ($number == "1") {
 
 
 	$ch = curl_init("https://api.themoviedb.org/3/search/movie?api_key=a99025c572bede9218ee420b5c9f4cc4&language=en-US&query=" . $moviename . "&page=1&include_adult=false");
-	$fp = fopen("apidata.txt", "w+");
+	$fp = fopen("movies.json", "w+");
 
 	curl_setopt($ch, CURLOPT_FILE, $fp);
 	curl_setopt($ch, CURLOPT_HEADER, 0);
@@ -28,7 +28,7 @@ if ($number == "1") {
 
 
 	$ch = curl_init("https://api.themoviedb.org/3/search/tv?api_key=a99025c572bede9218ee420b5c9f4cc4&language=en-US&query=" . $showname . "&page=1");
-	$fp = fopen("apidata.txt", "w+");
+	$fp = fopen("tvs.json", "w+");
 
 	curl_setopt($ch, CURLOPT_FILE, $fp);
 	curl_setopt($ch, CURLOPT_HEADER, 0);
