@@ -19,6 +19,8 @@ if ($number == "1") {
 	curl_close($ch);
 	fclose($fp);
 
+	
+
 }else{
 
 	$input2 = readline("TV Show: ");
