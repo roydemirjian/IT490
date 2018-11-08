@@ -1,47 +1,21 @@
 #!/usr/bin/php
 <?php
 
-echo "Number: 1 For Movie Search or 2 for TV Show or 3 for multi search\n";
 
-$number = readline("Enter one number from above: ");
-if ($number == "1") {
-	$input = readline("Movie: ");
-	$moviename = preg_replace('/\s+/', '+',$input);
-
-
-	$ch = curl_init("https://api.themoviedb.org/3/search/movie?api_key=a99025c572bede9218ee420b5c9f4cc4&language=en-US&query=" . $moviename . "&page=1&include_adult=false");
-	$fp = fopen("/home/roydem/database/apidata/movies.json", "w+");
-
-	curl_setopt($ch, CURLOPT_FILE, $fp);
-	curl_setopt($ch, CURLOPT_HEADER, 0);
-
-	curl_exec($ch);
-	curl_close($ch);
-	fclose($fp);
-
-	
-
-}elseif ($number == "2") {
-
-	$input2 = readline("TV Show: ");
-	$showname = preg_replace('/\s+/', '+',$input2);
+error_reporting(E_ALL);
+ini_set('log_errors', TRUE);
+ini_set('error_log', '/home/roydem/database/logging/dbLog.txt');
+ini_set('log_errors_max_len', 1024);
 
 
-	$ch = curl_init("https://api.themoviedb.org/3/search/tv?api_key=a99025c572bede9218ee420b5c9f4cc4&language=en-US&query=" . $showname . "&page=1");
-	$fp = fopen("/home/roydem/database/apidata/shows.json", "w+");
 
-	curl_setopt($ch, CURLOPT_FILE, $fp);
-	curl_setopt($ch, CURLOPT_HEADER, 0);
+echo "WELCOME TO MOVIE BUDDY\n";
 
-	curl_exec($ch);
-	curl_close($ch);
-	fclose($fp);
+$answer = readline("Do you dare search?: ");
+if ($answer == "yes") {
 
-}else{
-
-
-        $input3 = readline("TV Show or Movie: ");
-        $searchname = preg_replace('/\s+/', '+',$input3);
+        $input = readline("TV Show or Movie name: ");
+        $searchname = preg_replace('/\s+/', '+',$input);
 
 
         $ch = curl_init("https://api.themoviedb.org/3/search/multi?api_key=a99025c572bede9218ee420b5c9f4cc4&language=en-US&query=" . $searchname . "&page=1&include_adult=false");
@@ -54,7 +28,25 @@ if ($number == "1") {
         curl_close($ch);
         fclose($fp);
 
+
+}else{
+
+	echo "Why are you here then?\n";
+	exit();
+	
 }
+
+exec('/home/roydem/database/jsontest.php', $output, $return);
+
+if (!$return){
+	echo "Displaying search results\n\n";
+	foreach ($output as $line){
+		echo "$line\n";
+	}
+}else{
+	echo "Could not display search results\n";
+}
+
 
 ?>
 

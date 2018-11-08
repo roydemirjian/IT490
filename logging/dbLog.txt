@@ -62,3 +62,39 @@ Stack trace:
 #0 /home/roydem/database/rabbitMQLib.inc(122): AMQPQueue->consume(Array)
 #1 /home/roydem/database/rabbitMQServer.php(128): rabbitMQServer->process_requests('requestProcesso...')
 #2 {main} in /home/roydem/database/rabbitMQLib.inc on line 132
+[08-Nov-2018 00:07:30 America/New_York] PHP Notice:  Undefined index: title in /home/roydem/database/jsontest.php on line 17
+[08-Nov-2018 00:07:30 America/New_York] PHP Notice:  Undefined index: release_date in /home/roydem/database/jsontest.php on line 29
+[08-Nov-2018 00:07:30 America/New_York] PHP Notice:  Undefined index: title in /home/roydem/database/jsontest.php on line 17
+[08-Nov-2018 00:07:30 America/New_York] PHP Notice:  Undefined index: release_date in /home/roydem/database/jsontest.php on line 29
+[08-Nov-2018 00:07:30 America/New_York] PHP Notice:  Undefined index: title in /home/roydem/database/jsontest.php on line 17
+[08-Nov-2018 00:07:30 America/New_York] PHP Notice:  Undefined index: release_date in /home/roydem/database/jsontest.php on line 29
+[08-Nov-2018 00:07:30 America/New_York] PHP Notice:  Undefined index: title in /home/roydem/database/jsontest.php on line 17
+[08-Nov-2018 00:07:30 America/New_York] PHP Notice:  Undefined index: release_date in /home/roydem/database/jsontest.php on line 29
+[08-Nov-2018 00:07:30 America/New_York] PHP Notice:  Undefined index: title in /home/roydem/database/jsontest.php on line 17
+[08-Nov-2018 00:07:30 America/New_York] PHP Notice:  Undefined index: release_date in /home/roydem/database/jsontest.php on line 29
+[08-Nov-2018 00:07:30 America/New_York] PHP Notice:  Undefined index: title in /home/roydem/database/jsontest.php on line 17
+[08-Nov-2018 00:07:30 America/New_York] PHP Notice:  Undefined index: release_date in /home/roydem/database/jsontest.php on line 29
+[08-Nov-2018 00:07:30 America/New_York] PHP Notice:  Undefined index: title in /home/roydem/database/jsontest.php on line 17
+[08-Nov-2018 00:07:30 America/New_York] PHP Notice:  Undefined index: overview in /home/roydem/database/jsontest.php on line 23
+[08-Nov-2018 00:07:30 America/New_York] PHP Notice:  Undefined index: release_date in /home/roydem/database/jsontest.php on line 29
+[08-Nov-2018 00:07:30 America/New_York] PHP Notice:  Undefined index: poster_path in /home/roydem/database/jsontest.php on line 35
+[08-Nov-2018 00:08:56 America/New_York] PHP Notice:  Undefined index: title in /home/roydem/database/jsontest.php on line 16
+[08-Nov-2018 00:08:56 America/New_York] PHP Notice:  Undefined index: release_date in /home/roydem/database/jsontest.php on line 28
+[08-Nov-2018 00:08:56 America/New_York] PHP Notice:  Undefined index: title in /home/roydem/database/jsontest.php on line 16
+[08-Nov-2018 00:08:56 America/New_York] PHP Notice:  Undefined index: release_date in /home/roydem/database/jsontest.php on line 28
+[08-Nov-2018 00:08:56 America/New_York] PHP Notice:  Undefined index: title in /home/roydem/database/jsontest.php on line 16
+[08-Nov-2018 00:08:56 America/New_York] PHP Notice:  Undefined index: release_date in /home/roydem/database/jsontest.php on line 28
+[08-Nov-2018 00:08:56 America/New_York] PHP Notice:  Undefined index: title in /home/roydem/database/jsontest.php on line 16
+[08-Nov-2018 00:08:56 America/New_York] PHP Notice:  Undefined index: release_date in /home/roydem/database/jsontest.php on line 28
+[08-Nov-2018 00:08:56 America/New_York] PHP Notice:  Undefined index: title in /home/roydem/database/jsontest.php on line 16
+[08-Nov-2018 00:08:56 America/New_York] PHP Notice:  Undefined index: release_date in /home/roydem/database/jsontest.php on line 28
+[08-Nov-2018 00:08:56 America/New_York] PHP Notice:  Undefined index: title in /home/roydem/database/jsontest.php on line 16
+[08-Nov-2018 00:08:56 America/New_York] PHP Notice:  Undefined index: release_date in /home/roydem/database/jsontest.php on line 28
+[08-Nov-2018 00:08:56 America/New_York] PHP Notice:  Undefined index: title in /home/roydem/database/jsontest.php on line 16
+[08-Nov-2018 00:08:56 America/New_York] PHP Notice:  Undefined index: overview in /home/roydem/database/jsontest.php on line 22
+[08-Nov-2018 00:08:56 America/New_York] PHP Notice:  Undefined index: release_date in /home/roydem/database/jsontest.php on line 28
+[08-Nov-2018 00:08:56 America/New_York] PHP Notice:  Undefined index: poster_path in /home/roydem/database/jsontest.php on line 34
+[08-Nov-2018 00:11:47 America/New_York] PHP Notice:  Undefined index: title in /home/roydem/database/jsontest.php on line 16
+[08-Nov-2018 00:11:47 America/New_York] PHP Notice:  Undefined index: release_date in /home/roydem/database/jsontest.php on line 28
+[08-Nov-2018 00:12:10 America/New_York] PHP Notice:  Undefined index: title in /home/roydem/database/jsontest.php on line 16
+[08-Nov-2018 00:12:10 America/New_York] PHP Notice:  Undefined index: release_date in /home/roydem/database/jsontest.php on line 28

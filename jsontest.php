@@ -1,50 +1,44 @@
 #!/usr/bin/php
 <?php
 
-$file = file_get_contents("/home/roydem/database/apidata/movies.json");
-$jsonarray = json_decode($file, true);
+error_reporting(E_ALL);
+ini_set('log_errors', TRUE);
+ini_set('error_log', '/home/roydem/database/logging/dbLog.txt');
+ini_set('log_errors_max_len', 1024);
 
-#foreach($jsonarray as $key => $json ){
 
-#	echo $key;
 
-#	foreach($json as $key2 => $json2){
-
-#		echo $key2;
-
-#	}
-
-#}
-
+$file = file_get_contents("/home/roydem/database/apidata/multi_search.json");
+$jsonarray = json_decode($file, true); //convert json into multidimensional associative array 
 
 foreach($jsonarray['results'] as $variable){
 
 	$title = $variable['title'];
-	print $title;
-        print "\n";
+	if (is_null($title)){
+		$title = $title . 'NULL';
+	}
+	print 'TITLE: ' . $title . "\n";
 
 	$overview =  $variable['overview'];
-	print $overview;
-        print "\n";
+        if (is_null($overview)){
+                $overview = $overview . 'NULL';
+        }
+	print 'OVERVIEW: ' . $overview . "\n";
 
 	$releasedate =  $variable['release_date'];
-	print $releasedate;
-        print "\n";
+        if (is_null($releasedate)){
+                $releasedate = $releasedate . 'NULL';
+        }
+	print 'RELEASE DATE: ' . $releasedate . "\n";
 
 	$posterpath = $variable['poster_path'];
-	print $posterpath;
-	print "\n";
+        if (is_null($posterpath)){
+                $posterpath = $posterpath . 'NULL';
+        }
+	print 'POSTER PATH: ' . $posterpath . "\n\n";
 
-        print "\n";
-	print "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
-        print "\n";
-
+	print "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n";
 }
-
-#var_dump($jsonarray);
-
-
-
 
 
 ?>
