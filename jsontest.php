@@ -19,16 +19,25 @@ $jsonarray = json_decode($file, true);
 
 foreach($jsonarray['results'] as $variable){
 
-	print $variable['title'];
+	$title = $variable['title'];
+	print $title;
         print "\n";
 
-	print $variable['overview'];
+	$overview =  $variable['overview'];
+	print $overview;
         print "\n";
 
-	print $variable['release_date'];
+	$releasedate =  $variable['release_date'];
+	print $releasedate;
         print "\n";
 
+	$posterpath = $variable['poster_path'];
+	print $posterpath;
 	print "\n";
+
+        print "\n";
+	print "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -";
+        print "\n";
 
 }
 
