@@ -2,6 +2,7 @@
 <?php
 
 
+
 //Search input from hmtl
 $search_input = $_POST['search'];
 
@@ -44,8 +45,6 @@ foreach($jsonarray['results'] as $variable){
                 $title = $title . 'NULL';
         }
         echo nl2br('TITLE: ' . $title . "\n");
-	
-
 
         $overview =  $variable['overview'];
         if (is_null($overview)){
@@ -69,8 +68,11 @@ foreach($jsonarray['results'] as $variable){
 	$image = 'https://image.tmdb.org/t/p/w500' . $posterpath;
 	$imagedata = base64_encode(file_get_contents($image));
 
+
 	//Display image
-	echo "<img src=\"".$image."\">";
+	//echo "<img src=\"".$image."\" >";
+
+	echo '<a href="http://www.imdb.com"><img src="'.$image.'"><h4></h4></a>';
 
 	echo nl2br("\n\n");
 
