@@ -46,3 +46,11 @@ mysqli_close();
 <td colspan="5" align="right" bgcolor="#E6E6E6"><a href="new_topic.php"><strong>Create New Topic</strong> </a></td>
 </tr>
 </table>
+
+<script>
+
+//document.cookie = "title=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+</script>
+
+

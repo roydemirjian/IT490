@@ -15,7 +15,7 @@ echo nl2br("<br><br>			WELCOME TO MOVIE BUDDY FORUMS");
 
 // get value of id that sent from address bar 
 $id=$_GET['id'];
-echo $id;
+
 $sql = mysqli_query($mydb,"SELECT * FROM fquestions WHERE id='$id'");
 $rows=mysqli_fetch_array($sql);
 ?>
@@ -51,11 +51,6 @@ while($rows=mysqli_fetch_array($sql2)){
 <table width="400" border="0" align="center" cellpadding="0" cellspacing="1" bgcolor="#CCCCCC">
 <tr>
 <td><table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
-<tr>
-<td bgcolor="#F8F7F1"><strong>ID</strong></td>
-<td bgcolor="#F8F7F1">:</td>
-<td bgcolor="#F8F7F1"><?php echo $rows['a_id']; ?></td>
-</tr>
 <tr>
 <td width="18%" bgcolor="#F8F7F1"><strong>Name</strong></td>
 <td width="5%" bgcolor="#F8F7F1">:</td>
