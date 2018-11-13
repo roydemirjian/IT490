@@ -22,10 +22,10 @@ $datetime = date("d/m/y h:i:s"); //create date time
 $query = mysqli_query($mydb,"INSERT INTO fquestions (topic, detail, name, datetime) VALUES ('$topic', '$detail', '$name', '$datetime')");
 
 if($query){
-echo "Post has be submitted<BR>";
+echo nl2br("Post has be submitted<br><br>");
 echo "<a href=main_forum.php>View your topic</a>";
 }
 else {
-echo "ERROR";
+echo nl2br("ERROR");
 }
 ?>

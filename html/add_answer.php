@@ -11,7 +11,7 @@ if ($mydb->errno != 0){
 
 }
 
-echo "<br><br>			WELCOME TO MOVIE BUDDY FORUMS".PHP_EOL;
+echo nl2br("<br><br>			WELCOME TO MOVIE BUDDY FORUMS<br><br>");
 
 
 // Get value of id that sent from hidden field 
@@ -39,14 +39,14 @@ $datetime=date("d/m/y H:i:s");
 // Insert answer 
 $sql2 = mysqli_query($mydb, "INSERT INTO fanswer VALUES ('$id', '$Max_id', '$a_name', '$a_answer', '$datetime')");
 if($sql2){
-echo "Your comment has been submitted<BR>";
+echo nl2br("Your comment has been submitted<BR>");
 echo "<a href='view_topic.php?id=".$id."'>View your answer</a>";
 
 // If added new answer, add value +1 in reply column 
 $sql3 = mysqli_query($mydb, "UPDATE fquestions SET reply='$Max_id' WHERE id='$id'");
 }
 else {
-echo "ERROR";
+echo nl2br("ERROR");
 }
 // Close connection
 mysqli_close();

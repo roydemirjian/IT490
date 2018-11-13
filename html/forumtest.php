@@ -2,7 +2,7 @@
 
 session_Start();
 
-
+//Connect to DB
 $mydb = new mysqli('127.0.0.1','root','root','myforum');
 
 if ($mydb->errno != 0){
@@ -12,10 +12,11 @@ if ($mydb->errno != 0){
 
 }
 
-//Javascript get hyperlink name for title in new post....WIP
-//$topictest "<script>document.write(myAnchor);</script>";
+//Get movie title name from cookie 
+if(isset($_COOKIE['title'])){
+	$topic = $_COOKIE['title'];
+}
 
-$topic = $_SESSION["title"]; //how to get this to change?
 $detail = 'Discuss this movie!';
 $name = 'MovieBuddy';
 $datetime = date("d/m/y h:i:s"); //create date time
@@ -26,7 +27,7 @@ $count = mysqli_num_rows($check);
 if ($count == 1){
 
 	//There is already a post
-	echo "<br><br> A forum board already exists! Redirecting you!";
+	echo nl2br("<br><br> A forum board already exists! Redirecting you!");
 	header("Location: main_forum.php");/* Redirect browser */
 	sleep(5);
 	exit();
@@ -35,7 +36,7 @@ if ($count == 1){
 
 	$query = mysqli_query($mydb,"INSERT INTO fquestions (topic, detail, name, datetime) VALUES ('$topic', '$detail', '$name', '$datetime')");
 
-	echo "<br><br> It appears you are the first to visit this page! Creating a forum post and redirecting you!";
+	echo nl2br("<br><br> It appears you are the first to visit this page! Creating a forum post and redirecting you!");
 
 	header("Location: main_forum.php");/* Redirect browser */
 	sleep(5);

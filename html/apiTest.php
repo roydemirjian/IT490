@@ -13,7 +13,7 @@ echo nl2br("\n\n ");
 
 echo nl2br("WELCOME TO MOVIE BUDDY\n\n");
 
-
+//Make sure there is a search input
 if (isset($_POST['search']) && !empty($_POST['search'])){
 
   	    	
@@ -38,38 +38,29 @@ if (isset($_POST['search']) && !empty($_POST['search'])){
 //convert json into multidimensional associative array
 $jsonarray = json_decode($curl_results, true); 
 
-//array for title names ( used for the hyperlinks )
-$titlearray = array();
 
 //Iterate through the array 'results' and assign a variable to each type that we want
 foreach($jsonarray['results'] as $variable){
 
-	$movieid = $variable['id'];
-	echo nl2br($movieid);
-	echo nl2br("\n");
+	//------------------ MOVIE ID --------------------------
 
-	//-------------------------------------------------
+	$movieid = $variable['id'];
+	//echo nl2br($movieid);
+	//echo nl2br("\n");
+
+	//----------------- TITLE --------------------------------
 
         $title = $variable['title'];
         if (is_null($title)){
                 $title = $title . 'NULL';
         }
 	
-	//echo nl2br('TITLE: ' . $title . "\n");
-	echo '<a id = "titlearray" href = "http://127.0.0.1/forumtest.php" >  '. $title . ' </a>';
+	//echo '<a id = "titlearray" href = "http://127.0.0.1/forumtest.php" >  '. $title . ' </a>';
 
-	//Button has unqiue value from movie id
-	//Button has the correct name of the title
-	//working on javascript get part
-	echo '<button name = " ' . $title .' " onclick = "getText(this)" id = " ' . $movieid . ' ">  '. $title . ' </button>';
-
-
+	echo '<a button name = "' .$title.'" onclick ="getText(this)" id = "'.$movieid.'" href = "http://127.0.0.1/forumtest.php" >  '. $title . ' </a>';
 	echo nl2br("\n");
-	$_SESSION["title"] = $title;
 
-	$titlearray[] = $title;
-
-	//--------------------------------------
+	//------------------ OVERVIEW --------------------
 
         $overview =  $variable['overview'];
         if (is_null($overview)){
@@ -77,7 +68,7 @@ foreach($jsonarray['results'] as $variable){
         }
         echo nl2br('OVERVIEW: ' . $overview . "\n");
 
-	//--------------------------------------
+	//------------------ RELEASE DATE --------------------
 
         $releasedate =  $variable['release_date'];
         if (is_null($releasedate)){
@@ -85,7 +76,7 @@ foreach($jsonarray['results'] as $variable){
         }
         echo nl2br('RELEASE DATE: ' . $releasedate . "\n");
 
-	//--------------------------------------
+	//------------------- POSTER PATH -------------------
 
         $posterpath = $variable['poster_path'];
         if (is_null($posterpath)){
@@ -109,29 +100,16 @@ foreach($jsonarray['results'] as $variable){
 
 ?>
 
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
-//WIP Code to make have each hyperlink title pass its name onto the mysql insert
-var titles = <?php echo json_encode($titlearray); ?>;
-JSON.stringify(titles);
-console.info(titles);
-
-var movieid = <?php echo json_encode($movieid); ?>;
-
-
-
+//Get text from whatever link that is clicked and set a cookie so it may be passed to forumtest.php
 function getText(obj){
-	
-	//var loc = document.getElementsById("name").textContent;
 	var t = $(obj).text();
-	alert(t);
-	console.info(t);
-		
-	
+	document.cookie = "title="+t;
+	console.info(t);	
 }
-
-
 </script>
 
 

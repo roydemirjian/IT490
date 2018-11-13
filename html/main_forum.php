@@ -9,7 +9,7 @@ if ($mydb->errno != 0){
 
 }
 
-echo "<br><br>			WELCOME TO MOVIE BUDDY FORUMS".PHP_EOL;
+echo nl2br("<br><br>			WELCOME TO MOVIE BUDDY FORUMS");
 
 $query = mysqli_query($mydb,"SELECT * FROM fquestions ORDER BY id ASC");
 

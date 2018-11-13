@@ -10,7 +10,7 @@ if ($mydb->errno != 0){
 
 }
 
-echo "<br><br>			WELCOME TO MOVIE BUDDY FORUMS".PHP_EOL;
+echo nl2br("<br><br>			WELCOME TO MOVIE BUDDY FORUMS");
 
 
 // get value of id that sent from address bar 
