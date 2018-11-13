@@ -35,7 +35,11 @@ if (isset($_POST['search']) && !empty($_POST['search'])){
 }
 
 
-$jsonarray = json_decode($curl_results, true); //convert json into multidimensional associative array 
+//convert json into multidimensional associative array
+$jsonarray = json_decode($curl_results, true); 
+
+//array for title names ( used for the hyperlinks )
+$titlearray = array();
 
 //Iterate through the array 'results' and assign a variable to each type that we want
 foreach($jsonarray['results'] as $variable){
@@ -44,14 +48,28 @@ foreach($jsonarray['results'] as $variable){
 	echo nl2br($movieid);
 	echo nl2br("\n");
 
+	//-------------------------------------------------
+
         $title = $variable['title'];
         if (is_null($title)){
                 $title = $title . 'NULL';
         }
+	
 	//echo nl2br('TITLE: ' . $title . "\n");
-	echo '<a id = "anchorID" href="http://127.0.0.1/forumtest.php">  '. $title . ' </a>';
+	echo '<a id = "titlearray" href = "http://127.0.0.1/forumtest.php" >  '. $title . ' </a>';
+
+	//Button has unqiue value from movie id
+	//Button has the correct name of the title
+	//working on javascript get part
+	echo '<button name = " ' . $title .' " onclick = "getText(this)" id = " ' . $movieid . ' ">  '. $title . ' </button>';
+
+
 	echo nl2br("\n");
 	$_SESSION["title"] = $title;
+
+	$titlearray[] = $title;
+
+	//--------------------------------------
 
         $overview =  $variable['overview'];
         if (is_null($overview)){
@@ -59,30 +77,30 @@ foreach($jsonarray['results'] as $variable){
         }
         echo nl2br('OVERVIEW: ' . $overview . "\n");
 
+	//--------------------------------------
+
         $releasedate =  $variable['release_date'];
         if (is_null($releasedate)){
                 $releasedate = $releasedate . 'NULL';
         }
         echo nl2br('RELEASE DATE: ' . $releasedate . "\n");
 
+	//--------------------------------------
+
         $posterpath = $variable['poster_path'];
         if (is_null($posterpath)){
                 $posterpath = $posterpath . 'NULL';
         }
-	//echo nl2br('POSTER PATH: ' . 'https://image.tmdb.org/t/p/w500' . $posterpath . "\n\n");
 
 	//Get image path and base64 encode it so that it may be displayed
 	$image = 'https://image.tmdb.org/t/p/w500' . $posterpath;
 	$imagedata = base64_encode(file_get_contents($image));
 
-
 	//Display image
-	//echo "<img src=\"".$image."\" >";
-
 	echo '<img src="'.$image.'"><h4></h4></a>';
 
-	echo nl2br("\n\n");
 
+	echo nl2br("\n\n");
         echo nl2br("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n");
 }
 
@@ -91,12 +109,28 @@ foreach($jsonarray['results'] as $variable){
 
 ?>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <script>
 //WIP Code to make have each hyperlink title pass its name onto the mysql insert
-var myAnchor = document.getElementById("anchorID");
-console.log(myAnchor.text);
+var titles = <?php echo json_encode($titlearray); ?>;
+JSON.stringify(titles);
+console.info(titles);
+
+var movieid = <?php echo json_encode($movieid); ?>;
+
+
+
+function getText(obj){
+	
+	//var loc = document.getElementsById("name").textContent;
+	var t = $(obj).text();
+	alert(t);
+	console.info(t);
+		
+	
+}
+
 
 </script>
 
