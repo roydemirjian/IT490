@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php
 
-
+session_start();
 
 //Search input from hmtl
 $search_input = $_POST['search'];
@@ -40,6 +40,10 @@ $jsonarray = json_decode($curl_results, true); //convert json into multidimensio
 //Iterate through the array 'results' and assign a variable to each type that we want
 foreach($jsonarray['results'] as $variable){
 
+	$movieid = $variable['id'];
+	echo nl2br($movieid);
+	echo nl2br("\n");
+
         $title = $variable['title'];
         if (is_null($title)){
                 $title = $title . 'NULL';
@@ -47,6 +51,7 @@ foreach($jsonarray['results'] as $variable){
 	//echo nl2br('TITLE: ' . $title . "\n");
 	echo '<a id = "anchorID" href="http://127.0.0.1/forumtest.php">  '. $title . ' </a>';
 	echo nl2br("\n");
+	$_SESSION["title"] = $title;
 
         $overview =  $variable['overview'];
         if (is_null($overview)){

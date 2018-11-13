@@ -1,6 +1,6 @@
 <?php
 
-
+session_Start();
 
 
 $mydb = new mysqli('127.0.0.1','root','root','myforum');
@@ -15,7 +15,7 @@ if ($mydb->errno != 0){
 //Javascript get hyperlink name for title in new post....WIP
 //$topictest "<script>document.write(myAnchor);</script>";
 
-$topic = 'Inception'; //how to get this to change?
+$topic = $_SESSION["title"]; //how to get this to change?
 $detail = 'Discuss this movie!';
 $name = 'MovieBuddy';
 $datetime = date("d/m/y h:i:s"); //create date time
