@@ -11,7 +11,7 @@ if ($mydb->errno != 0){
 
 }
 
-echo "<br><br>Successfully connected to database".PHP_EOL;
+echo "<br><br>			WELCOME TO MOVIE BUDDY FORUMS".PHP_EOL;
 
 
 // Get value of id that sent from hidden field 
@@ -32,15 +32,14 @@ $Max_id = 1;
 
 // get values that sent from form 
 $a_name=$_POST['a_name'];
-$a_email=$_POST['a_email'];
 $a_answer=$_POST['a_answer']; 
 $datetime=date("d/m/y H:i:s"); 
 
 
 // Insert answer 
-$sql2 = mysqli_query($mydb, "INSERT INTO fanswer VALUES ('$id', '$Max_id', '$a_name', '$a_email', '$a_answer', '$datetime')");
+$sql2 = mysqli_query($mydb, "INSERT INTO fanswer VALUES ('$id', '$Max_id', '$a_name', '$a_answer', '$datetime')");
 if($sql2){
-echo "Successful<BR>";
+echo "Your comment has been submitted<BR>";
 echo "<a href='view_topic.php?id=".$id."'>View your answer</a>";
 
 // If added new answer, add value +1 in reply column 

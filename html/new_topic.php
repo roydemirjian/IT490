@@ -27,11 +27,6 @@
 <td><input name="name" type="text" id="name" size="50" /></td>
 </tr>
 <tr>
-<td><strong>Email</strong></td>
-<td>:</td>
-<td><input name="email" type="text" id="email" size="50" /></td>
-</tr>
-<tr>
 <td>&nbsp;</td>
 <td>&nbsp;</td>
 <td><input type="submit" name="Submit" value="Submit" /> 

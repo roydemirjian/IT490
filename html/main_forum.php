@@ -9,7 +9,7 @@ if ($mydb->errno != 0){
 
 }
 
-echo "<br><br>Successfully connected to database".PHP_EOL;
+echo "<br><br>			WELCOME TO MOVIE BUDDY FORUMS".PHP_EOL;
 
 $query = mysqli_query($mydb,"SELECT * FROM fquestions ORDER BY id ASC");
 

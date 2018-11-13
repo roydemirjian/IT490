@@ -17,24 +17,12 @@ if ($mydb->errno != 0){
 $topic = $_POST['topic'];
 $detail = $_POST['detail'];
 $name = $_POST['name'];
-$email = $_POST['email'];
 $datetime = date("d/m/y h:i:s"); //create date time
 
-
-echo $topic;
-echo "<br><br>";
-echo $detail;
-echo "<br><br>";
-echo $name;
-echo "<br><br>";
-echo $name;
-echo "<br><br>";
-echo $datetime;
-
-$query = mysqli_query($mydb,"INSERT INTO fquestions (topic, detail, name, email, datetime) VALUES ('$topic', '$detail', '$name', '$email', '$datetime')");
+$query = mysqli_query($mydb,"INSERT INTO fquestions (topic, detail, name, datetime) VALUES ('$topic', '$detail', '$name', '$datetime')");
 
 if($query){
-echo "Successful<BR>";
+echo "Post has be submitted<BR>";
 echo "<a href=main_forum.php>View your topic</a>";
 }
 else {

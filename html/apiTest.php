@@ -44,7 +44,9 @@ foreach($jsonarray['results'] as $variable){
         if (is_null($title)){
                 $title = $title . 'NULL';
         }
-        echo nl2br('TITLE: ' . $title . "\n");
+	//echo nl2br('TITLE: ' . $title . "\n");
+	echo '<a id = "anchorID" href="http://127.0.0.1/forumtest.php">  '. $title . ' </a>';
+	echo nl2br("\n");
 
         $overview =  $variable['overview'];
         if (is_null($overview)){
@@ -72,7 +74,7 @@ foreach($jsonarray['results'] as $variable){
 	//Display image
 	//echo "<img src=\"".$image."\" >";
 
-	echo '<a href="http://www.imdb.com"><img src="'.$image.'"><h4></h4></a>';
+	echo '<img src="'.$image.'"><h4></h4></a>';
 
 	echo nl2br("\n\n");
 
@@ -83,6 +85,15 @@ foreach($jsonarray['results'] as $variable){
 
 
 ?>
+
+
+
+<script>
+//WIP Code to make have each hyperlink title pass its name onto the mysql insert
+var myAnchor = document.getElementById("anchorID");
+console.log(myAnchor.text);
+
+</script>
 
 
 <script id="cid0020000203039478046" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 400px;height: 500px;">{"handle":"moviebuddychatroom","arch":"js","styles":{"a":"33cc00","b":100,"c":"FFFFFF","d":"FFFFFF","k":"33cc00","l":"33cc00","m":"33cc00","n":"FFFFFF","p":"10","q":"33cc00","r":100,"pos":"br","cv":1,"cvbg":"33cc00","cvw":75,"cvh":30}}</script>

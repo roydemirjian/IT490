@@ -10,7 +10,7 @@ if ($mydb->errno != 0){
 
 }
 
-echo "<br><br>Successfully connected to database".PHP_EOL;
+echo "<br><br>			WELCOME TO MOVIE BUDDY FORUMS".PHP_EOL;
 
 
 // get value of id that sent from address bar 
@@ -32,7 +32,7 @@ $rows=mysqli_fetch_array($sql);
 </tr>
 
 <tr>
-<td bgcolor="#F8F7F1"><strong>By :</strong> <?php echo $rows['name']; ?> <strong>Email : </strong><?php echo $rows['email'];?></td>
+<td bgcolor="#F8F7F1"><strong>By :</strong> <?php echo $rows['name']; ?> </td>
 </tr>
 
 <tr>
@@ -60,11 +60,6 @@ while($rows=mysqli_fetch_array($sql2)){
 <td width="18%" bgcolor="#F8F7F1"><strong>Name</strong></td>
 <td width="5%" bgcolor="#F8F7F1">:</td>
 <td width="77%" bgcolor="#F8F7F1"><?php echo $rows['a_name']; ?></td>
-</tr>
-<tr>
-<td bgcolor="#F8F7F1"><strong>Email</strong></td>
-<td bgcolor="#F8F7F1">:</td>
-<td bgcolor="#F8F7F1"><?php echo $rows['a_email']; ?></td>
 </tr>
 <tr>
 <td bgcolor="#F8F7F1"><strong>Answer</strong></td>
@@ -106,11 +101,6 @@ mysqli_close();
 <td width="18%"><strong>Name</strong></td>
 <td width="3%">:</td>
 <td width="79%"><input name="a_name" type="text" id="a_name" size="45"></td>
-</tr>
-<tr>
-<td><strong>Email</strong></td>
-<td>:</td>
-<td><input name="a_email" type="text" id="a_email" size="45"></td>
 </tr>
 <tr>
 <td valign="top"><strong>Answer</strong></td>
