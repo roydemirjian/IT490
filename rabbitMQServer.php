@@ -20,7 +20,7 @@ function doLogin($userName,$userPass)
         //lookup username and password in database
 
 	//Connect to DB
-	$mydb = new mysqli('192.168.1.6','newuser','4321password','users');
+	$mydb = new mysqli('192.168.1.4','newuser','4321password','users');
 	
 	if ($mydb->errno != 0){
 
@@ -31,14 +31,11 @@ function doLogin($userName,$userPass)
 	echo "<br><br>Successfully connected to database".PHP_EOL;
 
 	//Select username and password from the database 
-	$query = mysqli_query($mydb,"SELECT * FROM users WHERE user_name = '$userName' ");
+	$query = mysqli_query($mydb,"SELECT * FROM users WHERE user_name = '$userName' AND password = '$userPass' ");
 	$count = mysqli_num_rows($query);
 
 	//Check if credentials match the database
 	if ($count == 1){
-		$row = mysqli_fetch_array($query, MYSQLI_ASSOC);
-		if (password_verify($password, $row['password'])){
-
 			//Match
 			echo "<br><br>USERS CREDENTIALS VERIFIED";
 			return true;
@@ -48,9 +45,7 @@ function doLogin($userName,$userPass)
         	        return false;
 		}
 		
-	}else{
-		echo "<br><br>Username or Password not found";
-	}
+	
 	
 	//$response = $mydb->query($query);
 	if ($mydb->errno !=0){
@@ -67,7 +62,7 @@ function doRegister($userName,$userPass)
         //lookup username in database
 
 	//Connect to DB
-        $mydb = new mysqli('192.168.1.6','newuser','4321password','users');
+        $mydb = new mysqli('192.168.1.4','newuser','4321password','users');
 
         if ($mydb->errno != 0){
 
