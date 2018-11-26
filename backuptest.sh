@@ -25,6 +25,7 @@ tar czf $dest/$archive_file --absolute-names $backup_files
 echo
 echo "Backup finished"
 date
+echo
 
 # Long listing of files in $dest to check file sizes.
 ls -lh $dest
