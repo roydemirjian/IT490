@@ -6,14 +6,23 @@ require_once('/home/roydem/database/rabbitMQLib.inc');
 
 
 #execute script to make a tar file of database
-//shell_exec('sh backuptest.sh');
-
-$version = "1";
-//putenv("version=$version_num");
-//$version = escapeshellarg($version);
-
 exec('./backuptest.sh ');
 
+
+#Increment version number
+$mydb = new mysqli('192.168.1.184','test','4321password','test');
+if ($mydb->errno != 0){
+	echo "Failed to connect to database: ".$mydb->error.PHP_EOL;
+	exit(0);
+}
+
+#Starting Version Number
+$increment_value = "1";
+
+//get last version number
+$check = mysqli_query($mydb, "SELECT * FROM Builds ORDER BY version DESC LIMIT 1");
+$row = mysqli_fetch_assoc($check);
+$version = $row['version'];
 
 
 $client = new rabbitMQClient("deployclientrabbitMQServer.ini","testServer");
@@ -22,7 +31,7 @@ $request['type'] = "bundle";
 $request['package'] = "BE";
 $request['tier'] = "QA";
 $request['packageName'] = "backendPackage";
-$request['version'] = $version;
+$request['version'] = $version + $increment_value;
 $response = $client->send_request($request);
 //print_r($response);
 echo "\n";
