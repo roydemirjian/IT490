@@ -42,7 +42,7 @@ function doDeploy ($type,$package,$tier,$packageName){
 }
 
 
-function doBundle ($type,$package,$tier,$packageName){
+function doBundle ($type,$package,$tier,$packageName,$version){
 
         echo "Bundle Request received" . PHP_EOL;
         echo "TYPE: " . $type . PHP_EOL;
@@ -50,7 +50,19 @@ function doBundle ($type,$package,$tier,$packageName){
         echo "TIER: " . $tier . PHP_EOL;
         echo "PACKAGE NAME: " . $packageName . PHP_EOL;
 
-        echo "SCP INITIATED: ";
+	echo "SCP INITIATED... ";
+	echo "TAR FILE RECEIVED!";
+
+	$mydb = new mysqli('127.0.0.1','test','4321password','test');
+
+        if ($mydb->errno != 0){
+
+                echo "Failed to connect to database: ".$mydb->error.PHP_EOL;
+                exit(0);
+        }
+
+
+	$query = mysqli_query($mydb, "INSERT INTO Builds VALUES('$packageName','$version')");
 
 }
 
@@ -72,7 +84,7 @@ function requestProcessor($request)
     case "deploy":
       return doDeploy($request['type'],$request['package'],$request['tier'],$request['packageName']);
     case "bundle":
-      return doBundle($request['type'],$request['package'],$request['tier'],$request['packageName']);
+      return doBundle($request['type'],$request['package'],$request['tier'],$request['packageName'],$request['version']);
   }
   return array("returnCode" => '0', 'message'=>"Server received request and processed");
 }
