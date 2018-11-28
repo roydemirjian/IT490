@@ -4,7 +4,7 @@ require_once('/home/roydem/database/path.inc');
 require_once('/home/roydem/database/get_host_info.inc');
 require_once('/home/roydem/database/rabbitMQLib.inc');
 
-$client = new rabbitMQClient("deployrabbitMQServer.ini","testServer");
+$client = new rabbitMQClient("deployclientrabbitMQServer.ini","testServer");
 $request = array();
 $request['type'] = "update";
 $request['package'] = "BE";

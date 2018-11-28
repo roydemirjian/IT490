@@ -16,7 +16,7 @@ exec('./backuptest.sh ');
 
 
 
-$client = new rabbitMQClient("deployrabbitMQServer.ini","testServer");
+$client = new rabbitMQClient("deployclientrabbitMQServer.ini","testServer");
 $request = array();
 $request['type'] = "bundle";
 $request['package'] = "BE";

@@ -8,7 +8,7 @@ require_once('/home/roydem/database/rabbitMQLib.inc');
 
 
 
-$client = new rabbitMQClient("deployrabbitMQServer.ini","testServer");
+$client = new rabbitMQClient("deployclientrabbitMQServer.ini","testServer");
 $request = array();
 $request['type'] = "deploy";
 $request['package'] = "BE";
