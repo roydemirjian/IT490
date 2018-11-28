@@ -1,8 +1,9 @@
 #!/usr/bin/php
 <?php
-require_once('path.inc');
-require_once('get_host_info.inc');
-require_once('rabbitMQLib.inc');
+
+require_once('/home/roydem/database/path.inc');
+require_once('/home/roydem/database/get_host_info.inc');
+require_once('/home/roydem/database/rabbitMQLib.inc');
 
 function doRollback ($type,$package,$tier,$packageName){
 
