@@ -16,19 +16,40 @@ if ($mydb->errno != 0){
 	exit(0);
 }
 
+#Variables that can be set......
+$type = 	readline("Enter Type: ");		#IE.. bundle
+$package = 	readline("Enter Package: ");		#IE.. backend
+$tier = 	readline("Enter Tier: ");		#IE.. QA
+$packageName =	readline("Enter PackageName: ");	#IE.. filename
+
+
 #Starting Version Number
 $increment_value = "1";
 
 #Get last version number
-$check = mysqli_query($mydb, "SELECT * FROM Builds ORDER BY version DESC LIMIT 1");
-$row = mysqli_fetch_assoc($check);
-$version = $row['version'];
+#$check = mysqli_query($mydb, "SELECT * FROM Builds ORDER BY version DESC LIMIT 1");
+#$row = mysqli_fetch_assoc($check);
+#$version = $row['version'];
 
-#Variables that can be set......
-$type = 	'bundle';
-$package = 	'Backend';
-$tier = 	'QA';
-$packageName =	'backendPackage';
+#Testing......
+$query = mysqli_query($mydb, "SELECT * FROM Builds WHERE filename = '$packageName'");
+$count = mysqli_num_rows($query);
+
+
+if ($count){
+	#Get last version number
+	$check = mysqli_query($mydb, "SELECT * FROM Builds WHERE filename = '$packageName' ORDER BY (version+0) DESC LIMIT 1");
+	$row = mysqli_fetch_assoc($check);
+	$version = $row['version'];
+	echo "File Already Exists! Creating next version #" . ($version + $increment_value);
+
+}else{
+	echo "Unknown File! Creating Version #1";
+	$version = "0";
+}	
+#first check if the package name has an matches in the db.
+#if yes, then get the last version number and run above code.
+#if no, then nothing, package will be given verison  #1 as its the first of its name
 
 
 #RabbitMQ Stuff
