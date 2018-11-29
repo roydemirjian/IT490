@@ -5,7 +5,7 @@ require_once('/home/roydem/database/path.inc');
 require_once('/home/roydem/database/get_host_info.inc');
 require_once('/home/roydem/database/rabbitMQLib.inc');
 
-function doRollback ($type,$package,$tier,$packageName){
+function doRollback ($type,$package,$tier,$packageName,$version){
 
         echo "Rollback Request received" . PHP_EOL;
         echo "TYPE: " . $type . PHP_EOL;
@@ -18,7 +18,7 @@ function doRollback ($type,$package,$tier,$packageName){
 }
 
 
-function doUpdate ($type,$package,$tier,$packageName){
+function doUpdate ($type,$package,$tier,$packageName,$version){
 
         echo "Update Request received" . PHP_EOL;
         echo "TYPE: " . $type . PHP_EOL;
@@ -29,7 +29,7 @@ function doUpdate ($type,$package,$tier,$packageName){
 
 }
 
-function doDeploy ($type,$package,$tier,$packageName){
+function doDeploy ($type,$package,$tier,$packageName,$version){
 
 	echo "Deploy Request received" . PHP_EOL;
 	echo "TYPE: " . $type . PHP_EOL;
@@ -79,11 +79,11 @@ function requestProcessor($request)
   switch ($request['type'])
   {
     case "rollback":
-      return doRollback($request['type'],$request['package'],$request['tier'],$request['packageName']);
+      return doRollback($request['type'],$request['package'],$request['tier'],$request['packageName'],$request['version']);
     case "update":
-      return doUpdate($request['type'],$request['package'],$request['tier'],$request['packageName']);
+      return doUpdate($request['type'],$request['package'],$request['tier'],$request['packageName'],$request['version']);
     case "deploy":
-      return doDeploy($request['type'],$request['package'],$request['tier'],$request['packageName']);
+      return doDeploy($request['type'],$request['package'],$request['tier'],$request['packageName'],$request['version']);
     case "bundle":
       return doBundle($request['type'],$request['package'],$request['tier'],$request['packageName'],$request['version']);
   }
