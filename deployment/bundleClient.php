@@ -5,8 +5,8 @@ require_once('/home/roydem/database/get_host_info.inc');
 require_once('/home/roydem/database/rabbitMQLib.inc');
 
 
-#execute script to make a tar file of database
-exec('./backuptest.sh ');
+#This script creates the tar file
+exec('./tar_gen.sh ');
 
 
 #Increment version number
@@ -35,4 +35,14 @@ $request['version'] = $version + $increment_value;
 $response = $client->send_request($request);
 //print_r($response);
 echo "\n";
+
+
+#rename the generated tar file
+rename("/home/roydem/backups/database-backup.tgz","/home/roydem/backups/".$request['packageName']."-".$request['version'].".tgz");
+
+
+#This script scps the file, then deletes it
+exec('./scp_tar.sh ');
+
+
 ?>
