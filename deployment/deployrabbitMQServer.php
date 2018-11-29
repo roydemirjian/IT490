@@ -29,6 +29,9 @@ function doUpdate ($type,$package,$tier,$packageName,$version){
 
 }
 
+#package must already be on deploy server (through the doBundle function)
+#installs the latest version
+#rollback will be used to pick a version?
 function doDeploy ($type,$package,$tier,$packageName,$version){
 
 	echo "Deploy Request received" . PHP_EOL;
@@ -37,8 +40,16 @@ function doDeploy ($type,$package,$tier,$packageName,$version){
 	echo "TIER: " . $tier . PHP_EOL;
 	echo "PACKAGE NAME: " . $packageName . PHP_EOL;
 
-	echo "Installing " . $packageName . " on " . $tier ." " . $package;
+	echo "Installing " . $packageName . "-" . $version . ".tgz" . " on " . $tier ." " . $package . PHP_EOL;
 	# execute shell script to install backend package
+
+	#destination of the scp to send
+	$sourcefile = "~/database/scp/" . $packageName . "-" . $version . ".tgz";
+	echo $sourcefile . PHP_EOL;
+
+	$sourcefile = escapeshellarg($sourcefile);
+	$output = exec("./scp_tar_from_deploy.sh $sourcefile");
+	
 
 }
 
