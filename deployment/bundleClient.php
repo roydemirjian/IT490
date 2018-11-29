@@ -26,27 +26,36 @@ $packageName =	readline("Enter PackageName: ");	#IE.. filename
 #Starting Version Number
 $increment_value = "1";
 
-#Get last version number
-#$check = mysqli_query($mydb, "SELECT * FROM Builds ORDER BY version DESC LIMIT 1");
-#$row = mysqli_fetch_assoc($check);
-#$version = $row['version'];
-
-#Testing......
 $query = mysqli_query($mydb, "SELECT * FROM Builds WHERE filename = '$packageName'");
 $count = mysqli_num_rows($query);
 
+if ($type == 'bundle'){
 
-if ($count){
+	if ($count){
+        	#Get last version number
+        	$check = mysqli_query($mydb, "SELECT * FROM Builds WHERE filename = '$packageName' ORDER BY (version+0) DESC LIMIT 1");
+        	$row = mysqli_fetch_assoc($check);
+        	$version = $row['version'];
+        	echo "File Already Exists! Creating next version #" . ($version + $increment_value);
+
+	}else{
+        	echo "Unknown File! Creating Version #1";
+        	$version = "0";
+	}
+
+}
+
+$decrement_value = 1;
+
+if ($type == 'deploy'){
 	#Get last version number
 	$check = mysqli_query($mydb, "SELECT * FROM Builds WHERE filename = '$packageName' ORDER BY (version+0) DESC LIMIT 1");
 	$row = mysqli_fetch_assoc($check);
 	$version = $row['version'];
-	echo "File Already Exists! Creating next version #" . ($version + $increment_value);
+	echo "Deployinging " .  $packageName . "-" . $version;
 
-}else{
-	echo "Unknown File! Creating Version #1";
-	$version = "0";
-}	
+
+}
 #first check if the package name has an matches in the db.
 #if yes, then get the last version number and run above code.
 #if no, then nothing, package will be given verison  #1 as its the first of its name
@@ -59,18 +68,29 @@ $request['type'] = $type;
 $request['package'] = $package;
 $request['tier'] = $tier;
 $request['packageName'] = $packageName;
-$request['version'] = $version + $increment_value;
+
+if ($type == 'bundle'){
+	$request['version'] = $version + $increment_value;
+}
+
+if ($type == 'deploy'){
+        $request['version'] = $version;
+}
+
 $response = $client->send_request($request);
+
+
 //print_r($response);
 echo "\n";
 
+if ($type == 'bundle'){
+	#rename the generated tar file
+	rename("/home/roydem/backups/database-backup.tgz","/home/roydem/backups/".$request['packageName']."-".$request['version'].".tgz");
+}
 
-#rename the generated tar file
-rename("/home/roydem/backups/database-backup.tgz","/home/roydem/backups/".$request['packageName']."-".$request['version'].".tgz");
-
-
-#This script scps the file, then deletes it
-exec('./scp_tar.sh ');
-
+if ($type == 'bundle'){
+	#This script scps the file, then deletes it
+	exec('./scp_tar.sh ');
+}
 
 ?>
