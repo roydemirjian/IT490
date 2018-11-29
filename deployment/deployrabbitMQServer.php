@@ -49,7 +49,7 @@ function doBundle ($type,$package,$tier,$packageName,$version){
         echo "TYPE: " . $type . PHP_EOL;
         echo "PACKAGE: " . $package . PHP_EOL;
         echo "TIER: " . $tier . PHP_EOL;
-        echo "PACKAGE NAME: " . $packageName . PHP_EOL;
+        echo "PACKAGE NAME: " . $packageName . "-" . $version .  PHP_EOL;
 
 	echo "SCP INITIATED... ";
 	echo "TAR FILE RECEIVED!";
