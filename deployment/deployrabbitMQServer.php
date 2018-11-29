@@ -44,9 +44,9 @@ function doDeploy ($type,$package,$tier,$packageName,$version){
 	# execute shell script to install backend package
 
 	#destination of the scp to send
-	$sourcefile = "~/database/scp/" . $packageName . "-" . $version . ".tgz";
-	echo $sourcefile . PHP_EOL;
-
+	$sourcefile = "/database/scp/" . $packageName . "-" . $version . ".tgz";
+	echo "FILEPATH: " . $sourcefile . PHP_EOL;
+	
 	$sourcefile = escapeshellarg($sourcefile);
 	$output = exec("./scp_tar_from_deploy.sh $sourcefile");
 	
