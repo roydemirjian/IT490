@@ -20,6 +20,10 @@ $package = 	readline("Enter Package: ");		#IE.. backend
 $tier = 	readline("Enter Tier: ");		#IE.. QA
 $packageName =	readline("Enter PackageName: ");	#IE.. filename
 
+if ($type == 'rollback'){
+	$rollbackVersion = readline("Enter version to rollback to: ");
+}
+
 
 #Starting Version Number
 $increment_value = "1";
@@ -65,6 +69,10 @@ if ($type == 'bundle'){
 }
 if ($type == 'deploy'){
         $request['version'] = $version;
+}
+
+if ($type == 'rollback'){
+	$request['rollbackversion'] = $rollbackVersion;
 }
 
 $response = $client->send_request($request);

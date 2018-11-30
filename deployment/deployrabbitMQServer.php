@@ -5,12 +5,34 @@ require_once('/home/roydem/database/path.inc');
 require_once('/home/roydem/database/get_host_info.inc');
 require_once('/home/roydem/database/rabbitMQLib.inc');
 
-function doRollback ($type,$package,$tier,$packageName,$version){
+function doRollback ($type,$package,$tier,$packageName,$version,$rollbackVersion){
         echo "Rollback Request received" . PHP_EOL;
         echo "TYPE: " . $type . PHP_EOL;
         echo "PACKAGE: " . $package . PHP_EOL;
         echo "TIER: " . $tier . PHP_EOL;
-        echo "PACKAGE NAME: " . $packageName . PHP_EOL;
+	echo "PACKAGE NAME: " . $packageName . PHP_EOL;
+
+	$mydb = new mysqli('127.0.0.1','test','4321password','test');
+
+        if ($mydb->errno != 0){
+
+                echo "Failed to connect to database: ".$mydb->error.PHP_EOL;
+                exit(0);
+        }
+
+
+        $query = mysqli_query($mydb, "SELECT * Builds WHERE VALUES('$packageName','$rollbackVersion')");
+	echo "Previous version found! Rolling back!"; 
+
+
+	#destination of the scp to send
+        $file = "/database/scp/" . $packageName . "-" . $rollbackVersion . ".tgz";
+        echo "FILEPATH: " . $file . PHP_EOL;
+
+        $file = escapeshellarg($file);
+        $output = exec("./scp_tar_from_deploy.sh $file");
+	
+
 }
 
 
@@ -72,7 +94,7 @@ function requestProcessor($request)
   switch ($request['type'])
   {
     case "rollback":
-      return doRollback($request['type'],$request['package'],$request['tier'],$request['packageName'],$request['version']);
+      return doRollback($request['type'],$request['package'],$request['tier'],$request['packageName'],$request['version'],$request['rollbackversion']);
     case "update":
       return doUpdate($request['type'],$request['package'],$request['tier'],$request['packageName'],$request['version']);
     case "deploy":
