@@ -10,7 +10,7 @@ exec('./tar_gen.sh ');
 
 
 #Connect to mysql to obtain version numbers
-$mydb = new mysqli('192.168.1.184','test','4321password','test');
+$mydb = new mysqli('192.168.1.186','test','4321password','test');
 if ($mydb->errno != 0){
 	echo "Failed to connect to database: ".$mydb->error.PHP_EOL;
 	exit(0);
