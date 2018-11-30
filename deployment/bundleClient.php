@@ -42,7 +42,6 @@ if ($type == 'bundle'){
 	}
 }
 
-
 if ($type == 'deploy'){
 	#Get last version number
 	$check = mysqli_query($mydb, "SELECT * FROM Builds WHERE filename = '$packageName' ORDER BY (version+0) DESC LIMIT 1");
