@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # What to backup. 
-backup_files="/home/roydem/database"
+backup_files="~/database/"
 
 # Where to backup to.
-dest="/home/roydem/backups"
+dest="/home/roydem/backups/"
 
 # version_num= $1
 # version_n=$1
@@ -19,7 +19,7 @@ date
 echo
 
 # Backup the files using tar.
-tar czf $dest/$archive_file --absolute-names $backup_files
+tar czf $dest/$archive_file -C /home/roydem/database/ .
 
 # Print end status message.
 echo
