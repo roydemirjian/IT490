@@ -11,7 +11,7 @@
 cd /home/roydem/database/scp
 
 #delete contents first
-ssh roydem@192.168.1.12 'rm -rf /home/roydem/scp/*'
+ssh roydem@192.168.1.10 'rm -rf /home/roydem/scp/*'
 
 #send new rollback version
-pv $1 | ssh roydem@192.168.1.12 'cat | tar xz --strip-components=3 -C /home/roydem/scp'
+pv $1 | ssh roydem@192.168.1.10 'cat | tar xz --strip-components=1 -C /home/roydem/scp'
