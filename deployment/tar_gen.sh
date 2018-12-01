@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # What to backup. 
-backup_files="~/database/"
+backup_files="/home/roydem/database/"
 
 # Where to backup to.
 dest="/home/roydem/backups/"
