@@ -26,11 +26,11 @@ function doRollback ($type,$package,$tier,$packageName,$version,$rollbackVersion
 
 
 	#destination of the scp to send
-        $file = "/database/scp/" . $packageName . "-" . $rollbackVersion . ".tgz";
+        $file = "/home/roydem/database/scp/" . $packageName . "-" . $rollbackVersion . ".tgz";
         echo "FILEPATH: " . $file . PHP_EOL;
 
         $file = escapeshellarg($file);
-        $output = exec("./scp_tar_from_deploy.sh $file");
+        $output = exec("./rollback.sh $file");
 	
 
 }
@@ -50,7 +50,7 @@ function doDeploy ($type,$package,$tier,$packageName,$version){
 	# execute shell script to install backend package
 
 	#destination of the scp to send
-	$sourcefile = "/database/scp/" . $packageName . "-" . $version . ".tgz";
+	$sourcefile = "/home/roydem/database/scp/" . $packageName . "-" . $version . ".tgz";
 	echo "FILEPATH: " . $sourcefile . PHP_EOL;
 	
 	$sourcefile = escapeshellarg($sourcefile);
