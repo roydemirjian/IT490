@@ -1,14 +1,11 @@
 #!/bin/bash
 
-#rollback
+#scp the rollback package to destination
 
-# SCP the tar from the deploy server to its destination
-
-#sourcefile=$1
-#scp /home/roydem/database/scp/$sourcefile roydem@192.168.1.10:/home/roydem/scp
-#echo $sourecfile
 
 cd /home/roydem/database/scp
+
+# $1 is filename
 
 #delete contents first
 ssh roydem@192.168.1.10 'rm -rf /home/roydem/scp/*'

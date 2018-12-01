@@ -13,22 +13,22 @@ function doRollback ($type,$package,$tier,$packageName,$version,$rollbackVersion
 	echo "PACKAGE NAME: " . $packageName . PHP_EOL;
 
 	$mydb = new mysqli('127.0.0.1','test','4321password','test');
-
         if ($mydb->errno != 0){
-
                 echo "Failed to connect to database: ".$mydb->error.PHP_EOL;
                 exit(0);
         }
 
-
+	#add if statement to check if true...
+	#vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
         $query = mysqli_query($mydb, "SELECT * Builds WHERE VALUES('$packageName','$rollbackVersion')");
-	echo "Previous version found! Rolling back!"; 
+	echo "Previous version found! Rolling back!" . PHP_EOL; 
 
 
-	#destination of the scp to send
+	#destination of the tar to send
         $file = "/home/roydem/database/scp/" . $packageName . "-" . $rollbackVersion . ".tgz";
         echo "FILEPATH: " . $file . PHP_EOL;
 
+	#execute script with the filepath as an aruegment
         $file = escapeshellarg($file);
         $output = exec("./rollback.sh $file");
 	
@@ -49,10 +49,11 @@ function doDeploy ($type,$package,$tier,$packageName,$version){
 	echo "Installing " . $packageName . "-" . $version . ".tgz" . " on " . $tier ." " . $package . PHP_EOL;
 	# execute shell script to install backend package
 
-	#destination of the scp to send
+	#destination of the tar to send
 	$sourcefile = "/home/roydem/database/scp/" . $packageName . "-" . $version . ".tgz";
 	echo "FILEPATH: " . $sourcefile . PHP_EOL;
-	
+
+	#execute script with the filepath as an arguement
 	$sourcefile = escapeshellarg($sourcefile);
 	$output = exec("./scp_tar_from_deploy.sh $sourcefile");
 }
@@ -66,18 +67,15 @@ function doBundle ($type,$package,$tier,$packageName,$version){
         echo "TIER: " . $tier . PHP_EOL;
         echo "PACKAGE NAME: " . $packageName . "-" . $version .  PHP_EOL;
 
-	echo "SCP INITIATED... ";
-	echo "TAR FILE RECEIVED!";
+	echo "SCP INITIATED... " . PHP_EOL;
+	echo "TAR FILE RECEIVED!" . PHP_EOL;
 
 	$mydb = new mysqli('127.0.0.1','test','4321password','test');
-
         if ($mydb->errno != 0){
-
                 echo "Failed to connect to database: ".$mydb->error.PHP_EOL;
                 exit(0);
         }
-
-
+	#Update Version number
 	$query = mysqli_query($mydb, "INSERT INTO Builds VALUES('$packageName','$version')");
 
 }

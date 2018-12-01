@@ -7,6 +7,7 @@ require_once('/home/roydem/database/rabbitMQLib.inc');
 #This script creates the tar file
 exec('./tar_gen.sh ');
 
+
 #Connect to mysql
 $mydb = new mysqli('192.168.1.4','test','4321password','test');
 if ($mydb->errno != 0){
@@ -14,12 +15,15 @@ if ($mydb->errno != 0){
 	exit(0);
 }
 
+
 #Variables that can be set......
 $type = 	readline("Enter Type: ");		#IE.. bundle
 $package = 	readline("Enter Package: ");		#IE.. backend
 $tier = 	readline("Enter Tier: ");		#IE.. QA
 $packageName =	readline("Enter PackageName: ");	#IE.. filename
 
+
+#You can only set rollback version if type == rollback
 if ($type == 'rollback'){
 	$rollbackVersion = readline("Enter version to rollback to: ");
 }
@@ -28,11 +32,13 @@ if ($type == 'rollback'){
 #Starting Version Number
 $increment_value = "1";
 
+
 #Find filename is exists from user input
 $query = mysqli_query($mydb, "SELECT * FROM Builds WHERE filename = '$packageName'");
 $count = mysqli_num_rows($query);
 
 
+#If type is bundle do
 if ($type == 'bundle'){
 	if ($count){
         	#Get last version number
@@ -46,6 +52,7 @@ if ($type == 'bundle'){
 	}
 }
 
+#If type is deploy do
 if ($type == 'deploy'){
 	#Get last version number
 	$check = mysqli_query($mydb, "SELECT * FROM Builds WHERE filename = '$packageName' ORDER BY (version+0) DESC LIMIT 1");
@@ -54,6 +61,13 @@ if ($type == 'deploy'){
 	echo "Deploying " .  $packageName . "-" . $version;
 }
 
+if ($type == 'rollback'){
+	$check = mysqli_query($mydb, "SELECT * FROM Builds WHERE filename = '$packageName' AND version = '$rollbackVersion'");
+	$row = mysqli_fetch_assoc($check);
+	if ($row){
+		echo "File Found! Rolling back!";
+	}
+}
 
 
 #RabbitMQ Stuff
@@ -81,6 +95,7 @@ $response = $client->send_request($request);
 //print_r($response);
 echo "\n";
 
+#renames tar based on user input if type is bundle, then scps to deploy
 if ($type == 'bundle'){
 	#rename the generated tar file
 	rename("/home/roydem/backups/database-backup.tgz","/home/roydem/backups/".$request['packageName']."-".$request['version'].".tgz");
