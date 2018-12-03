@@ -5,7 +5,7 @@ require_once('/home/roydem/database/path.inc');
 require_once('/home/roydem/database/get_host_info.inc');
 require_once('/home/roydem/database/rabbitMQLib.inc');
 
-function doRollback ($type,$package,$tier,$packageName,$version,$rollbackVersioni,$ipAddress){
+function doRollback ($type,$package,$tier,$packageName,$version,$rollbackVersion,$ipAddress){
         echo "Rollback Request received" . PHP_EOL;
         echo "TYPE: " . $type . PHP_EOL;
         echo "PACKAGE: " . $package . PHP_EOL;
