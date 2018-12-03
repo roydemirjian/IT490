@@ -28,6 +28,9 @@ if ($type == 'rollback'){
 	$rollbackVersion = readline("Enter version to rollback to: ");
 }
 
+if ($type =='rollback' OR 'deploy'){
+        $ipAddress = readline("Enter IP Address: ");
+}
 
 #Starting Version Number
 $increment_value = "1";
@@ -87,6 +90,10 @@ if ($type == 'deploy'){
 
 if ($type == 'rollback'){
 	$request['rollbackversion'] = $rollbackVersion;
+}
+
+if ($type == 'deploy' OR 'rollback'){
+	$request['ipAddress'] = $ipAddress;
 }
 
 $response = $client->send_request($request);

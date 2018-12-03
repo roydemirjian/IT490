@@ -5,7 +5,7 @@ require_once('/home/roydem/database/path.inc');
 require_once('/home/roydem/database/get_host_info.inc');
 require_once('/home/roydem/database/rabbitMQLib.inc');
 
-function doRollback ($type,$package,$tier,$packageName,$version,$rollbackVersion){
+function doRollback ($type,$package,$tier,$packageName,$version,$rollbackVersioni,$ipAddress){
         echo "Rollback Request received" . PHP_EOL;
         echo "TYPE: " . $type . PHP_EOL;
         echo "PACKAGE: " . $package . PHP_EOL;
@@ -28,6 +28,8 @@ function doRollback ($type,$package,$tier,$packageName,$version,$rollbackVersion
         $file = "/home/roydem/database/scp/" . $packageName . "-" . $rollbackVersion . ".tgz";
         echo "FILEPATH: " . $file . PHP_EOL;
 
+
+	#add IP ADDRESS as second variable
 	#execute script with the filepath as an aruegment
         $file = escapeshellarg($file);
         $output = exec("./rollback.sh $file");
@@ -38,7 +40,7 @@ function doRollback ($type,$package,$tier,$packageName,$version,$rollbackVersion
 
 #package must already be on deploy server (through the doBundle function)
 #installs the latest version
-function doDeploy ($type,$package,$tier,$packageName,$version){
+function doDeploy ($type,$package,$tier,$packageName,$version,$ipAddress){
 
 	echo "Deploy Request received" . PHP_EOL;
 	echo "TYPE: " . $type . PHP_EOL;
@@ -53,6 +55,7 @@ function doDeploy ($type,$package,$tier,$packageName,$version){
 	$sourcefile = "/home/roydem/database/scp/" . $packageName . "-" . $version . ".tgz";
 	echo "FILEPATH: " . $sourcefile . PHP_EOL;
 
+	#add IP ADDRESS as second variable
 	#execute script with the filepath as an arguement
 	$sourcefile = escapeshellarg($sourcefile);
 	$output = exec("./scp_tar_from_deploy.sh $sourcefile");
@@ -92,11 +95,11 @@ function requestProcessor($request)
   switch ($request['type'])
   {
     case "rollback":
-      return doRollback($request['type'],$request['package'],$request['tier'],$request['packageName'],$request['version'],$request['rollbackversion']);
+      return doRollback($request['type'],$request['package'],$request['tier'],$request['packageName'],$request['version'],$request['rollbackversion'],$request['ipAddress']);
     case "update":
       return doUpdate($request['type'],$request['package'],$request['tier'],$request['packageName'],$request['version']);
     case "deploy":
-      return doDeploy($request['type'],$request['package'],$request['tier'],$request['packageName'],$request['version']);
+      return doDeploy($request['type'],$request['package'],$request['tier'],$request['packageName'],$request['version'],$request['ipAddress']);
     case "bundle":
       return doBundle($request['type'],$request['package'],$request['tier'],$request['packageName'],$request['version']);
   }
