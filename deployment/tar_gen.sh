@@ -6,11 +6,7 @@ backup_files="/home/roydem/database/"
 # Where to backup to.
 dest="/home/roydem/backups/"
 
-# version_num= $1
-# version_n=$1
-
 # Create archive filename.
-current_time=$(date +%m-%d-%Y_%H-%M-%S)
 archive_file="database-backup.tgz"
 
 # Print start status message.

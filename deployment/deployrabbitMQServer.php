@@ -25,7 +25,7 @@ function doRollback ($type,$package,$tier,$packageName,$version,$rollbackVersion
 
 
 	#destination of the tar to send
-        $file = "/home/roydem/database/scp/" . $packageName . "-" . $rollbackVersion . ".tgz";
+        $file = "/var/temp/" . $packageName . "-" . $rollbackVersion . ".tgz";
         echo "FILEPATH: " . $file . PHP_EOL;
 
 	#execute script with the filepath as an aruegment
@@ -50,7 +50,7 @@ function doDeploy ($type,$package,$tier,$packageName,$version){
 	# execute shell script to install backend package
 
 	#destination of the tar to send
-	$sourcefile = "/home/roydem/database/scp/" . $packageName . "-" . $version . ".tgz";
+	$sourcefile = "/var/temp/" . $packageName . "-" . $version . ".tgz";
 	echo "FILEPATH: " . $sourcefile . PHP_EOL;
 
 	#execute script with the filepath as an arguement
