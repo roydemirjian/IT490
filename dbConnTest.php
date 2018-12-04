@@ -1,6 +1,6 @@
 #!/usr/bin/php
 <?php
-$mydb =  mysqli_connect('192.168.1.6','newuser','4321password','users');
+$mydb =  mysqli_connect("192.168.1.7","newuser","4321password","test");
  
 if ($mydb->errno != 0){
 
@@ -10,17 +10,8 @@ if ($mydb->errno != 0){
 
 echo "<br><br>Successfully connected to database".PHP_EOL;
 
+$query = mysqli_query($mydb, "INSERT INTO Builds VALUES('test','123')");
 
-$query = mysqli_query($mydb,"SELECT * FROM users");
-
-while ($row = mysqli_fetch_assoc($query)){
-	echo $row['id'];
-	echo "\n";
-	echo $row['user_name'];
-	echo"\n";
-	echo $row['password'];
-	echo "\n\n";
-}
 
 
 
