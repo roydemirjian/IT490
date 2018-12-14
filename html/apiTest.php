@@ -18,6 +18,7 @@ if (isset($_POST['search']) && !empty($_POST['search'])){
 
   	    	
 	$searchname = preg_replace('/\s+/', '+',$search_input);
+	//Single quotes fucks everyting up........
 
 	//API MULTI SEARCH ( MOVIES AND SHOWS)
         $ch = curl_init("https://api.themoviedb.org/3/search/multi?api_key=a99025c572bede9218ee420b5c9f4cc4&language=en-US&query=" . $searchname . "&page=1&include_adult=false");	
@@ -84,14 +85,53 @@ foreach($jsonarray['results'] as $variable){
         }
 
 	//Get image path and base64 encode it so that it may be displayed
-	$image = 'https://image.tmdb.org/t/p/w500' . $posterpath;
+	$image = 'https://image.tmdb.org/t/p/w342' . $posterpath;
 	$imagedata = base64_encode(file_get_contents($image));
 
 	//Display image
 	echo '<img src="'.$image.'"><h4></h4></a>';
 
-
 	echo nl2br("\n\n");
+
+	//----------------------- RECOMMENDED MOVIES ------------------------------------
+	//API Recommended movies and shows
+	
+        $ch2 = curl_init("https://api.themoviedb.org/3/movie/".$movieid."/recommendations?api_key=a99025c572bede9218ee420b5c9f4cc4&language=en-US&page=1");
+        curl_setopt($ch2, CURLOPT_HEADER, 0);
+        curl_setopt($ch2, CURLOPT_RETURNTRANSFER, TRUE);
+
+        //Set results to var
+        $curl_results2 = curl_exec($ch2);
+        curl_close($ch2);
+
+	$jsonarray2 = json_decode($curl_results2, true);
+	echo nl2br('RECOMMENDED MOVIES: ' . "\n");
+	$i = 0;
+	//Show max of 4 movies
+	foreach($jsonarray2['results'] as $variable2){
+		
+		if ($i++ > 3) break;
+
+		$recommend =  $variable2['title'];
+        	if (is_null($recommend)){
+                	$recommend = $recommend . 'NULL';
+        	}
+		echo nl2br($recommend . "\n");
+
+		$posterpath2 = $variable2['poster_path'];
+        	if (is_null($posterpath2)){
+                	$posterpath2 = $posterpath2 . 'NULL';
+        	}
+
+        	//Get image path and base64 encode it so that it may be displayed
+        	$image2 = 'https://image.tmdb.org/t/p/w92' . $posterpath2;
+        	$imagedata2 = base64_encode(file_get_contents($image2));
+
+        	//Display image
+        	echo '<img src="'.$image2.'"><h4></h4></a>';
+
+	}
+
         echo nl2br("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n");
 }
 
