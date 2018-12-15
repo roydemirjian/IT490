@@ -143,6 +143,8 @@ foreach($jsonarray['results'] as $variable){
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+
 <script>
 //Get text from whatever link that is clicked and set a cookie so it may be passed to forumtest.php
 function getText(obj){
