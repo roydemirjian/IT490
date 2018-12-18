@@ -20,7 +20,7 @@ function doLogin($userName,$userPass)
         //lookup username and password in database
 
 	//Connect to DB
-	$mydb = new mysqli('192.168.1.4','newuser','4321password','users');
+	$mydb = new mysqli('192.168.1.11','user','password','users');
 	
 	if ($mydb->errno != 0){
 
@@ -62,7 +62,7 @@ function doRegister($userName,$userPass)
         //lookup username in database
 
 	//Connect to DB
-        $mydb = new mysqli('192.168.1.4','newuser','4321password','users');
+        $mydb = new mysqli('192.168.1.11','user','password','users');
 
         if ($mydb->errno != 0){
 

@@ -8,7 +8,7 @@
 
 
 #string to replace
-$oldip = '192.168.1.4';
+$oldip = '192.168.1.6';
 #new string
 $newip = '192.168.1.184';
 
